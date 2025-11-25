@@ -1,0 +1,41 @@
+version = 1  # Mandatory.
+
+# Has to be false, if configuration dict is applied after site-loggers
+# initialization. Default: true.
+disable_existing_loggers = false
+
+[root]
+handlers = ["console"]
+level = "DEBUG"
+
+# [loggers.__main__]
+# level = "DEBUG"
+
+# [loggers.my-package]
+# level = "DEBUG"
+
+# Error logger should be untouched.
+# 1. It logs every error to a file.
+# 2. It does not propagate the log, because the error message will be
+#    printed in the console anyway (sys.excepthook behavior).
+[loggers.catcher]
+handlers = ["file"]
+propagate = false
+
+[handlers.file]
+class = "logging.FileHandler"  # Mandatory.
+level = "DEBUG"
+formatter = "common"
+filename = "logs.log"
+mode = "w"
+encoding = "utf-8"
+
+[handlers.console]
+class = "logging.StreamHandler"  # Mandatory.
+level = "DEBUG"
+formatter = "common"
+
+[formatters.common]
+format = "{levelname:8} | {asctime} | {name} | {funcName} | {message}"
+datefmt = "%A, %d. %B %Y %I:%M%p %z"
+style = "{"
