@@ -1,0 +1,24 @@
+["Actual Total Load [6.1.A]"]
+documentType = "A65"
+processType = "A16"
+outBiddingZone_Domain = "10YPL-AREA-----S"
+
+["Day-ahead Total Load Forecast [6.1.B]"]
+documentType = "A65"
+processType = "A01"
+outBiddingZone_Domain = "10YPL-AREA-----S"
+
+["Day-ahead Prices [12.1.D]"]
+documentType = "A44"
+in_Domain = "10YPL-AREA-----S"
+out_Domain = "10YPL-AREA-----S"
+
+["Aggregated Generation per Type [16.1.B&C]"]
+documentType = "A75"
+processType = "A16"
+in_Domain = "10YPL-AREA-----S"
+#psrType = "B16"  # Optional.
+
+["Imbalance Prices [17.1.G]"]
+documentType = "A85"
+controlArea_Domain = "10YPL-AREA-----S"
